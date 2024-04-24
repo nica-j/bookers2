@@ -1,12 +1,43 @@
-<h4>New book</h4>
+<h4>User info</h4>
+<div><%= current_user.image %></div>
+<p>name <%= current_user.name %></p>
+<p>introduction <%= current_user.introduction %></p>
 
-<%= form_with model: @book do |f| %>
+<h4>New book</h4>
+<%= form_with model: @book do |book| %>
   <h6>Title</h6>
-  <%= f.text_field :title %>
+  <%= book.text_field :title %>
 	
   <h6>Opinion</h6>
-  <%= f.text_area :opinion %>
+  <%= book.text_area :opinion %>
 	
-  <br><%= f.submit 'create book' %>
+  <br><%= book.submit 'create book' %>
 <% end %>
 
+
+
+<h4>Books</h4>
+<table>
+  <thead>
+    <tr>
+      <th colspan="1"></th>
+      <th>Title</th>
+      <th>Opinion</th>
+    </tr>
+  </thread>
+  <tbody>
+    <tr>
+      <% @books.each do |book| %>
+        <tr>
+          <td>user.image </td>
+          <td>
+            <%= link_to book_path(book.id) do %>
+              <%= book.title %>
+            <% end %>
+          </td>
+          <td><%= book.opinion %></td>
+        </tr>
+      <% end %> 
+    </tr>
+  </tbody>
+</table>

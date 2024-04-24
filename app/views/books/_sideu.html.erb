@@ -1,0 +1,8 @@
+<h4>User info</h4>
+<%= form_with model: User do |t| %>
+  <div><%= t.image %></div>
+  <p>name <%= t.name %></p>
+  <p>introduction <%= t.introduction %></p>
+<% end %>
+
+<%= render 'sideu', t: cuurent_user %>

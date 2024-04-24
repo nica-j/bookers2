@@ -1,2 +1,11 @@
 <h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+
+<h4>User info</h4>
+<%= image_tag user.get_image %>
+
+<p>name <%= @user.name %> </p>
+<p>introduction <%= @user.introduction %> </p>
+
+<%= button_to "E", edit_user_path %>
+
+
