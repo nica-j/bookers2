@@ -1,11 +1,26 @@
-<h1>Users#show</h1>
+not current user info
 
-<h4>User info</h4>
-<%= image_tag user.get_image %>
+<h4>Books</h4>
 
-<p>name <%= @user.name %> </p>
-<p>introduction <%= @user.introduction %> </p>
-
-<%= button_to "E", edit_user_path %>
-
-
+<table>
+  <thead>
+    <tr>
+      <th colspan="1"></th>
+      <th>Title</th>
+      <th>Opinion</th>
+    </tr>
+  </thread>
+  <tbody>
+    <tr>
+      <% @user.books.each do |t| %>
+        <tr>
+          <td><%= image_tag @user.get_image(100,100) %></td>
+          <td>
+            <%= link_to t.title, book_path(t.id) %>
+          </td>
+          <td><%= t.opinion %></td>
+        </tr>
+      <% end %> 
+    </tr>
+  </tbody>
+</table>

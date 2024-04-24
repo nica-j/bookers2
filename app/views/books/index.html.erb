@@ -1,20 +1,4 @@
-<h4>User info</h4>
-<div><%= current_user.image %></div>
-<p>name <%= current_user.name %></p>
-<p>introduction <%= current_user.introduction %></p>
-
-<h4>New book</h4>
-<%= form_with model: @book do |book| %>
-  <h6>Title</h6>
-  <%= book.text_field :title %>
-	
-  <h6>Opinion</h6>
-  <%= book.text_area :opinion %>
-	
-  <br><%= book.submit 'create book' %>
-<% end %>
-
-
+<%= render 'sideb', {user: current_user, book: @book} %>
 
 <h4>Books</h4>
 <table>
@@ -29,7 +13,7 @@
     <tr>
       <% @books.each do |book| %>
         <tr>
-          <td>user.image </td>
+          <td>user.image </td> 
           <td>
             <%= link_to book_path(book.id) do %>
               <%= book.title %>

@@ -1,23 +1,15 @@
 <h4>User info</h4>
-<div><%= current_user.image %></div>
-<p>name <%= current_user.name %></p>
-<p>introduction <%= current_user.introduction %></p>
-
-<h4>User info</h4>
-<%= form_with model: User do |t| %>
-  <div><%= t.image %></div>
-  <p>name <%= t.name %></p>
-  <p>introduction <%= t.introduction %></p>
-<% end %>
-
+<div><%= image_tag user.get_image(100,100) %></div>
+<p>name <%= user.name %></p>
+<p>introduction <%= user.introduction %></p>
 
 <h4>New book</h4>
-<%= form_with model: @book do |book| %>
+<%= form_with model: book do |f| %>
   <h6>Title</h6>
-  <%= book.text_field :title %>
+  <%= f.text_field :title %>
 	
   <h6>Opinion</h6>
-  <%= book.text_area :opinion %>
+  <%= f.text_area :opinion %>
 	
-  <br><%= book.submit 'create book' %>
+  <br><%= f.submit 'create book' %>
 <% end %>
