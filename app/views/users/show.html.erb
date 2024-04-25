@@ -1,6 +1,6 @@
-not current user info
+<%= render 'books/sideb', {user: @user, book: Book.new} %>
 
-<h4>Books</h4>
+<h1>Books</h1>
 
 <table>
   <thead>
@@ -14,11 +14,11 @@ not current user info
     <tr>
       <% @user.books.each do |t| %>
         <tr>
-          <td><%= image_tag @user.get_image(100,100) %></td>
+          <td><%= image_tag @user.profile_image(100,100) %></td>
           <td>
             <%= link_to t.title, book_path(t.id) %>
           </td>
-          <td><%= t.opinion %></td>
+          <td><%= t.body %></td>
         </tr>
       <% end %> 
     </tr>
