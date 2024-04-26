@@ -1,26 +1,33 @@
-<%= render 'books/sideb', {user: @user, book: Book.new} %>
-
-<h1>Books</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th colspan="1"></th>
-      <th>Title</th>
-      <th>Opinion</th>
-    </tr>
-  </thread>
-  <tbody>
-    <tr>
-      <% @user.books.each do |t| %>
-        <tr>
-          <td><%= image_tag @user.profile_image(100,100) %></td>
-          <td>
-            <%= link_to t.title, book_path(t.id) %>
-          </td>
-          <td><%= t.body %></td>
-        </tr>
-      <% end %> 
-    </tr>
-  </tbody>
-</table>
+<div class='container px-5'>
+    <div class='row'>
+      <div class='col-md-3'>
+        <%= render 'books/sideb', {user: @user, book: Book.new} %>
+      </div>
+      
+      <div class='col-md-8 offset-md-1'>
+        <h2>Books</h2>
+        <table class='table table-hover table-inverse'>
+          <thead>
+            <tr>
+              <th colspan="1"></th>
+              <th>Title</th>
+              <th>Opinion</th>
+            </tr>
+          </thread>
+          <tbody>
+            <tr>
+              <% @user.books.each do |t| %>
+                <tr>
+                  <td><%= image_tag @user.profile_image(100,100) %></td>
+                  <td>
+                    <%= link_to t.title, book_path(t.id) %>
+                  </td>
+                  <td><%= t.body %></td>
+                </tr>
+              <% end %> 
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+</div>
