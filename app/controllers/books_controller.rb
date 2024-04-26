@@ -8,12 +8,13 @@ class BooksController < ApplicationController
   def index
     #一覧部分
     @books = Book.all
+    @book = Book.new
   end
   
   def create
     @book = Book.new(book_params)
-    if  @book.user_id = current_user.id
-      @book.save
+    @book.user_id = current_user.id
+    if @book.save
       flash[:notice] = "You have created book successfully."
       redirect_to book_path(@book.id)
     else

@@ -4830,7 +4830,7 @@ Failures:
        [36m# /home/ec2-user/.rvm/gems/ruby-3.1.2/gems/factory_bot-6.4.6/lib/factory_bot/strategy_syntax_method_registrar.rb:28:in `block in define_singular_strategy_method'[0m
        [36m# ./spec/system/03_finishing_touches_spec.rb:4:in `block (2 levels) in <main>'[0m
 
-Finished in 3.41 seconds (files took 1.5 seconds to load)
+Finished in 3.46 seconds (files took 1.44 seconds to load)
 [31m201 examples, 169 failures[0m
 
 Failed examples:
