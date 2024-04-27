@@ -1,6 +1,6 @@
   <h2>User info</h2>
   <table class='table'>
-    <tr><%= image_tag user.profile_image(100, 100) %></tr>
+    <tr><%= image_tag user.get_profile_image(100, 100) %></tr>
     <tr>
       <th>name</th>
       <th><%= user.name %></th>
@@ -20,9 +20,9 @@
   <%= form_with model: book do |f| %>
     <h6>Title</h6>
     <%= f.text_field :title, class: "form-control" %>
-	
+
     <h6>Opinion</h6>
     <%= f.text_area :body, class: "form-control" %>
-	
-    <br><%= f.submit 'create book', class: "btn btn-sm btn-success" %>
+
+    <br><%= f.submit 'Create Book', class: "btn btn-sm btn-success" %>
   <% end %>

@@ -10,7 +10,7 @@ class BooksController < ApplicationController
     @books = Book.all
     @book = Book.new
   end
-  
+
   def create
     @book = Book.new(book_params)
     @book.user_id = current_user.id
@@ -25,9 +25,9 @@ class BooksController < ApplicationController
 
   def edit
     @book = Book.find(params[:id])
-    
+
   end
-  
+
   def update
     book = Book.find(params[:id])
     if book.update(book_params)
@@ -39,13 +39,13 @@ class BooksController < ApplicationController
       render :edit
     end
   end
-  
+
   def destroy
     book = Book.find(params[:id])
-    book.destroy 
+    book.destroy
     redirect_to '/books' #id指定しないときのredirect_to　URL指定ではないといけないので、path指定
-  end 
-  
+  end
+
   private
   # ストロングパラメータ
   def book_params
@@ -54,7 +54,7 @@ class BooksController < ApplicationController
   def is_matching_login_user
     book = Book.find(params[:id])
     unless book.user_id == current_user.id #bookのuser情報取得はbook.user_id
-      redirect_to user_path(current_user.id)
+      redirect_to books_path
     end
   end
 end
